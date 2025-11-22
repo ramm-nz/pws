@@ -2,7 +2,7 @@ import { Page, Locator, expect } from '@playwright/test';
 
 type flexibleLocator = string | Locator;
 
-export class ElementUtil{
+export class Element{
 
     private page: Page;
     private defaultTimeOut: number = 30000;
