@@ -40,21 +40,21 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
     // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
+    //   name: 'setup',
+    //   testDir: './',
+    //   testMatch: 'global-setup.js',
     // },
-    {
-      name: 'setup',
-      testDir: './',
-      testMatch: 'global-setup.js',
-    },
 
-    {
-      name: 'firefox',
-      dependencies: ["setup"],
-      use: { ...devices['Desktop Firefox'], storageState: './LoginAuth.json' },
-    },
+    // {
+    //   name: 'firefox',
+    //   dependencies: ["setup"],
+    //   use: { ...devices['Desktop Firefox'], storageState: './LoginAuth.json' },
+    // },
 
     // {
     //   name: 'webkit',

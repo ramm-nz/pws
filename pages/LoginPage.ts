@@ -1,5 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 import { Element } from "../utils/Element";
+import { InventoryPage } from "./InventoryPage";
 
 export class LoginPage{
 
@@ -35,7 +36,7 @@ async goToLoginPage(){
     await this.page.goto('https://www.saucedemo.com/');
 }
 
-async login(userName:string,passWord:string) : Promise<string>{
+async login(userName:string,passWord:string) : Promise<InventoryPage>{
     //** Older approach */
     // await this.userName.fill(userName);
     // await this.passWord.fill(passWord);
@@ -46,7 +47,8 @@ async login(userName:string,passWord:string) : Promise<string>{
     await this.element.fill(this.passWord,passWord);
     await this.element.click(this.loginButton);
     console.log(`Page Title is: ${await this.page.title()}`);
-    return await this.page.title();
+    // return await this.page.title(); instead we are going to return Inventory page ****
+    return new InventoryPage(this.page);
 }
  
 async doInvalidLogin(): Promise<string | null> {
